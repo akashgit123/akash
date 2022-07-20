@@ -26,7 +26,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
         // echo "Unable to Login ".$pass.$row['password'];
         header("location:/forum/partials/index.php");    
     }
-    header("location:/forum/partials/index.php");
+  header("location:/forum/partials/index.php");
 
 }
 ?>

@@ -30,6 +30,12 @@
         $id = $row['thread_id'];
         $title = $row['thread_title'];
         $description = $row['thread_description'];
+        $thread_user_id = $row['thread_user_id'];
+
+        $sql2 = "SELECT email FROM `user` WHERE user_id=$thread_user_id";
+        $result2 = mysqli_query($con,$sql2);
+        $row2 = mysqli_fetch_assoc($result2);
+        $posted_by = $row2['email'];
     }
     ?>
  <!-- Inserting the comments into the Comments DataBase from the Form -->
@@ -40,6 +46,10 @@
     if ($method == 'POST') {
         // Inserting the comments into the Comments DataBase 
         $comment_description = $_POST['comment'];
+        $comment_description = str_replace("<","&lt;",$comment_description);
+        $comment_description = str_replace(">","&gt;",$comment_description);
+
+
         $user_id = $_POST['user_id'];
         $sql = "INSERT INTO `comments` (`comment_content`, `thread_id`, `comment_time`, `comment_by`) VALUES ('$comment_description', '$id', current_timestamp(), '$user_id')";
         $result = mysqli_query($con, $sql);
@@ -75,7 +85,7 @@
                     Remain respectful of other members at all times.
             </p>
             </marquee>
-            <p class=""><b>Posted By ---------------</b></p>
+            <p class=""><b>Posted By <?php echo $posted_by; ?></b></p>
             <!-- <p class="lead">
         <a class="btn btn-success btn-lg" href="#" role="button">Learn more</a>
       </p> -->
@@ -112,7 +122,7 @@
 
 
     <!-- Fetching the Comments from the DB -->
-    <div class="container">
+    <div class="container mb-5">
         <h1 class="py-2" style="text-align:left;">Replies / Comments</h1>
         <?php
         $id = $_GET['thread_id'];
@@ -141,6 +151,17 @@
             </div>
         </div>';
         }
+        if($no_result)
+        {
+            echo '
+            <div class="jumbotron jumbotron-fluid">
+                <div class="container">
+                <h1 class="display-4">No Comments Found</h1>
+                <p class="lead">Be the first person to comment.</p>
+                </div>
+            </div>  ';
+        }
+            
         ?>
     </div>
 

@@ -39,7 +39,13 @@
     if ($method == 'POST') {
         // Inserting the Posts into the DataBase 
         $th_title = $_POST['thread_title'];
+        $th_title = str_replace("<","&lt;", $th_title);
+        $th_title = str_replace(">","&gt;", $th_title);
+
         $th_description = $_POST['thread_description'];
+        $th_description = str_replace("<","&lt;",$th_description);
+        $th_description = str_replace(">","&gt;",$th_description);
+
         $user_id = $_POST['user_id'];
         $sql = "INSERT INTO `threads` (`thread_title`, `thread_description`, `thread_category_id`, `thread_user_id`, `time_stamp`) VALUES ('$th_title', '$th_description', '$id', '$user_id', current_timestamp())";
         $result = mysqli_query($con, $sql);
@@ -127,7 +133,7 @@
 
 
     <!-- Listing All the Posts One by One -->
-    <div class="container">
+    <div class="container mb-5">
         <h1 class="py-2" style="text-align:left;">Browse questions</h1>
 
         <?php
