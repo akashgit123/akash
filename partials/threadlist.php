@@ -15,7 +15,7 @@
 
 <body>
     <h1>
-        <center>Discussion Forum</center>
+        <center>ITech Disc Forum</center>
     </h1>
 
     <?php include '_dbconnect.php'; ?>
@@ -132,38 +132,38 @@
     
 
 
-    <!-- Listing All the Posts One by One -->
-    <div class="container mb-5">
-        <h1 class="py-2" style="text-align:left;">Browse questions</h1>
+        <!-- Listing All the Posts One by One -->
+        <div class="container mb-5">
+            <h1 class="py-2" style="text-align:left;">Browse questions</h1>
 
-        <?php
-        $id = $_GET['catid'];
-        $sql = "select * from threads where thread_category_id= '$id'";
-        $result = mysqli_query($con, $sql);
-        $no_result = true;
-        while ($row = mysqli_fetch_assoc($result)) {
-            $no_result = false;
-            $thread_id = $row['thread_id'];
-            $thread_title = $row['thread_title'];
-            $thread_description = $row['thread_description'];
-            $post_time = $row['time_stamp'];
-            $thread_user_id= $row['thread_user_id'];
+            <?php
+            $id = $_GET['catid'];
+            $sql = "select * from threads where thread_category_id= '$id'";
+            $result = mysqli_query($con, $sql);
+            $no_result = true;
+            while ($row = mysqli_fetch_assoc($result)) {
+                $no_result = false;
+                $thread_id = $row['thread_id'];
+                $thread_title = $row['thread_title'];
+                $thread_description = $row['thread_description'];
+                $post_time = $row['time_stamp'];
+                $thread_user_id= $row['thread_user_id'];
 
-            $sql2 = "SELECT email FROM `user` WHERE user_id='$thread_user_id'";
-            $result2 = mysqli_query($con,$sql2);
-            $row2 = mysqli_fetch_assoc($result2);
-            $user_email = $row2['email'];
+                $sql2 = "SELECT `user_name` FROM `user` WHERE `user_id`='$thread_user_id'";
+                $result2 = mysqli_query($con,$sql2);
+                $row2 = mysqli_fetch_assoc($result2);
+                $user_name = $row2['user_name'];
 
 
-            echo '<div class="media">
-            <img class="mr-3" src="image\image_avatar.png" alt="There is some problem">
-            <div class="media-body">
-            <p class= "font-weight-bold my-0"> '.$user_email .' at ' . $post_time . '</p>
-                <h5 class="mt-0"><a class="text-dark" href="thread.php?thread_id=' . $thread_id . '">' . $thread_title . '</a></h5>
-                ' . $thread_description . '
-            </div>
-        </div>';
-        }
+                echo '<div class="media">
+                <img class="mr-3" src="image\image_avatar.png" alt="There is some problem">
+                <div class="media-body">
+                <p class= "font-weight-bold my-0"> '.$user_name .' at ' . $post_time . '</p>
+                    <h5 class="mt-0"><a class="text-dark" href="thread.php?thread_id=' . $thread_id . '">' . $thread_title . '</a></h5>
+                    ' . $thread_description . '
+                </div>
+            </div>';
+            }
         // echo var_dump($no_result);
         if ($no_result) {
             echo "<b> Be the First Person to Start Discussion on topic of your Interest in this Category </b>";

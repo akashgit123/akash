@@ -10,12 +10,16 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css " integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="like_dislike.css">
+
     <title>Welcome To Discussion Forum</title>
 </head>
 
 <body>
     <h1>
-        <center>Discussion Forum</center>
+        <center>ITech Disc Forum</center>
     </h1>
 
     <?php include '_dbconnect.php'; ?>
@@ -31,11 +35,13 @@
         $title = $row['thread_title'];
         $description = $row['thread_description'];
         $thread_user_id = $row['thread_user_id'];
+        $time =$row['time_stamp'];
 
-        $sql2 = "SELECT email FROM `user` WHERE user_id=$thread_user_id";
+        $sql2 = "SELECT `user_name` FROM `user` WHERE `user_id`=$thread_user_id";
         $result2 = mysqli_query($con,$sql2);
         $row2 = mysqli_fetch_assoc($result2);
-        $posted_by = $row2['email'];
+        $posted_by = $row2['user_name'];
+        
     }
     ?>
  <!-- Inserting the comments into the Comments DataBase from the Form -->
@@ -49,9 +55,11 @@
         $comment_description = str_replace("<","&lt;",$comment_description);
         $comment_description = str_replace(">","&gt;",$comment_description);
 
+        $verify=" ";
+
 
         $user_id = $_POST['user_id'];
-        $sql = "INSERT INTO `comments` (`comment_content`, `thread_id`, `comment_time`, `comment_by`) VALUES ('$comment_description', '$id', current_timestamp(), '$user_id')";
+        $sql = "INSERT INTO `comments` (`comment_content`, `thread_id`, `comment_time`, `comment_by`,`verify`) VALUES ('$comment_description', '$id', current_timestamp(), '$user_id','$verify')";
         $result = mysqli_query($con, $sql);
         $show_alert = true;
     }
@@ -85,7 +93,9 @@
                     Remain respectful of other members at all times.
             </p>
             </marquee>
-            <p class=""><b>Posted By <?php echo $posted_by; ?></b></p>
+            <p class=""><b>Posted By <?php echo $posted_by; ?></b>
+            <br>Time: <?php echo $time; ?>
+            </p>
             <!-- <p class="lead">
         <a class="btn btn-success btn-lg" href="#" role="button">Learn more</a>
       </p> -->
@@ -124,43 +134,49 @@
     <!-- Fetching the Comments from the DB -->
     <div class="container mb-5">
         <h1 class="py-2" style="text-align:left;">Replies / Comments</h1>
+        
+       
+        
         <?php
-        $id = $_GET['thread_id'];
-        $sql = "select * from comments where thread_id= '$id'";
-        $result = mysqli_query($con, $sql);
-        $no_result = true;
-        while ($row = mysqli_fetch_assoc($result)) {
-            $no_result = false;
-            $thread_id = $row['comment_id'];
-            $content = $row['comment_content'];
-            $comment_time = $row['comment_time'];
-            $comment_user_id= $row['comment_by'];
+        
+        // include 'like_dislike.php';
+        // $id = $_GET['thread_id'];
+        // $sql = "select * from comments where thread_id= '$id'";
+        // $result = mysqli_query($con, $sql);
+        // $no_result = true;
+        // while ($row = mysqli_fetch_assoc($result)) {
+        //     $no_result = false;
+        //     $thread_id = $row['comment_id'];
+        //     $content = $row['comment_content'];
+        //     $comment_time = $row['comment_time'];
+        //     $comment_user_id= $row['comment_by'];
+        //     $verify = $row['verify'];
 
-            $sql2 = "SELECT email FROM `user` WHERE user_id=$comment_user_id";
-            $result2 = mysqli_query($con,$sql2);
-            $row2 = mysqli_fetch_assoc($result2);
-            $user_email = $row2['email'];
+        //     $sql2 = "SELECT `user_name` FROM `user` WHERE `user_id`=$comment_user_id";
+        //     $result2 = mysqli_query($con,$sql2);
+        //     $row2 = mysqli_fetch_assoc($result2);
+        //     $user_name = $row2['user_name'];
 
 
 
-            echo '<div class="media">
-            <img class="mr-3" src="image\image_avatar.png" width="70px;" alt="There is some problem">
-            <div class="media-body">
-            <p class= "font-weight-bold my-0"> '.$user_email .'  '.$comment_time.'</p>
-                ' . $content . '
-            </div>
-        </div>';
-        }
-        if($no_result)
-        {
-            echo '
-            <div class="jumbotron jumbotron-fluid">
-                <div class="container">
-                <h1 class="display-4">No Comments Found</h1>
-                <p class="lead">Be the first person to comment.</p>
-                </div>
-            </div>  ';
-        }
+        //     echo '<div class="media">
+        //     <img class="mr-3" src="image\image_avatar.png" width="70px;" alt="There is some problem">
+        //     <div class="media-body">
+        //     <p class= "font-weight-bold my-0">Replied By: '.$user_name .'  </p>
+        //         ' . $content . ' <br> '.$comment_time.'
+        //     </div> '.$verify.'
+        // </div>';
+        // }
+        // if($no_result)
+        // {
+        //     echo '
+        //     <div class="jumbotron jumbotron-fluid">
+        //         <div class="container">
+        //         <h1 class="display-4">No Comments Found</h1>
+        //         <p class="lead">Be the first person to comment.</p>
+        //         </div>
+        //     </div>  ';
+        // }
             
         ?>
     </div>

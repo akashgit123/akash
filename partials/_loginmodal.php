@@ -16,12 +16,12 @@
                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                      <span aria-hidden="true">&times;</span>
                  </button>
-             </div>
+             </div> 
              <div class="modal-body">
                  <form action="/forum/partials/_handleLogin.php" method="POST">
                      <div class="form-group">
                          <label for="loginEmail">Username</label>
-                         <input type="text" class="form-control" id="loginEmail" name="loginEmail"
+                         <input type="text" class="form-control" id="loginUsername" name="loginUsername"
                              aria-describedby="emailHelp" placeholder="Enter Username">
                      </div>
                      <br>
@@ -32,6 +32,7 @@
                      </div>
                      <br>
                      <button type="submit" class="btn btn-primary">Submit</button>
+                     <a href="forgot_password.php">Forgot Password?</a>
 
 
                      <!-- <div class="modal-footer">

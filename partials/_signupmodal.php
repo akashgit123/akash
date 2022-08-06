@@ -22,18 +22,21 @@
          <div class="modal-body">
            <div class="form-group">
              <label for="exampleInputEmail1">Username</label>
-             <input type="text" class="form-control" id="signupEmail" name="signupEmail" aria-describedby="emailHelp" placeholder="Enter Username">
-             <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+             <input required type="text" class="form-control" id="signupUsername" name="signupUsername" aria-describedby="emailHelp" placeholder="Enter Username">
+           </div>
+           <div class="form-group">
+             <label for="exampleInputEmail1">Email</label>
+             <input required type="email" class="form-control" id="signupEmail" name="signupEmail" aria-describedby="emailHelp" placeholder="Enter Username">
            </div>
            <br>
            <div class="form-group">
              <label for="exampleInputPassword1">Create Password</label>
-             <input type="password" class="form-control" id="signupPassword" name="signupPassword" placeholder="Password">
+             <input required type="password" class="form-control" id="signupPassword" name="signupPassword" placeholder="Password">
            </div>
            <br>
            <div class="form-group">
              <label for="exampleInputPassword1">Confirm Password </label>
-             <input type="password" class="form-control" id="signupcPassword" name="signupcPassword" placeholder="Password">
+             <input required type="password" class="form-control" id="signupcPassword" name="signupcPassword" placeholder="Password">
            </div>
            <br>
            <button type="submit" class="btn btn-primary">Submit</button>
