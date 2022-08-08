@@ -32,7 +32,7 @@ include 'admin_header.php';
                             <tbody>
                                 <?php
                                 $thread_id = $_GET['thread_id'];
-                                $sql = "SELECT * from comments WHERE `thread_id`='$thread_id'";
+                                $sql = "SELECT * from comments WHERE `thread_id`='$thread_id' ORDER BY `comment_id` DESC";
                                 $result = mysqli_query($con, $sql);
 
                                 if (mysqli_num_rows($result) > 0) {

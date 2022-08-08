@@ -24,7 +24,7 @@ if(isset($_POST['delete_admin']))
     }
 }
 
-// Update category
+// Edit Admin
 if(isset($_POST['edit_admin']))
 {
     $admin_id =  mysqli_real_escape_string($con,$_POST['admin_id']);

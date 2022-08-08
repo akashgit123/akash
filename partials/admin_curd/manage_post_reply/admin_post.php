@@ -5,9 +5,7 @@ include 'admin_header.php';
 ?>
 
 <div class="containor mt-4 ">
-        <?php
-        include 'message.php';
-        ?>
+        <?php include 'message.php'; ?>
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
@@ -31,7 +29,7 @@ include 'admin_header.php';
                             </tr>
                             <tbody>
                                 <?php
-                                $sql = "select * from threads ";
+                                $sql = "SELECT * from threads ORDER BY `thread_id` DESC ";
                                 $result = mysqli_query($con, $sql);
 
                                 if (mysqli_num_rows($result) > 0) {

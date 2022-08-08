@@ -1,49 +1,35 @@
- <!-- Button trigger modal  -->
- <link rel="stylesheet" href="style.css">
-
- <button type="button" class="btn btn-primary btn-success mx-1 bg-dark" data-toggle="modal" data-target="#signupmodal">
-   SignUp
- </button>
-
-
- <!-- Modal -->
- <div class="modal fade" id="signupmodal" tabindex="-1" role="dialog" aria-labelledby="signupmodalLabel" aria-hidden="true">
-   <div class="modal-dialog" role="document">
-     <div class="modal-content">
-       <div class="modal-header">
-         <h5 class="modal-title" id="signupmodalLabel">Signup to Our Website </h5>
-         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-           <span aria-hidden="true">&times;</span>
-         </button>
-       </div>
-
-
-       <form action="/forum/partials/_handleSignup.php" method="POST">
-         <div class="modal-body">
-           <div class="form-group">
-             <label for="exampleInputEmail1">Username</label>
-             <input required type="text" class="form-control" id="signupUsername" name="signupUsername" aria-describedby="emailHelp" placeholder="Enter Username">
-           </div>
-           <div class="form-group">
-             <label for="exampleInputEmail1">Email</label>
-             <input required type="email" class="form-control" id="signupEmail" name="signupEmail" aria-describedby="emailHelp" placeholder="Enter Username">
-           </div>
-           <br>
-           <div class="form-group">
-             <label for="exampleInputPassword1">Create Password</label>
-             <input required type="password" class="form-control" id="signupPassword" name="signupPassword" placeholder="Password">
-           </div>
-           <br>
-           <div class="form-group">
-             <label for="exampleInputPassword1">Confirm Password </label>
-             <input required type="password" class="form-control" id="signupcPassword" name="signupcPassword" placeholder="Password">
-           </div>
-           <br>
-           <button type="submit" class="btn btn-primary">Submit</button>
-
-         </div>
-         </form>
-
-     </div>
-   </div>
- </div>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="user_signup.css" />
+    <title>Form Input Wave</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>SignUp</h1>
+      <?php include 'message.php' ;?>
+      <form action="/forum/partials/_handleSignup.php" method="POST">
+        <div class="form-control">
+          <input type="text" id="" name="signupUsername" required />
+          <label>Username</label>
+        </div>
+        <div class="form-control">
+          <input type="email" id="" name="signupEmail" required />
+          <label>Email</label>
+        </div>
+        <div class="form-control">
+          <input type="password" id="" name="signupPassword" required />
+          <label>Create Password</label>
+        </div>
+        <div class="form-control">
+          <input type="password" id="" name="signupcPassword" required />
+          <label>Confirm Password</label>
+        </div>
+        <button class="btn">Submit</button>
+      </form>
+    </div>
+    <script src="user_signup.js"></script>
+  </body>
+</html>

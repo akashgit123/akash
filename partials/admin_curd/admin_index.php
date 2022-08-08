@@ -2,13 +2,13 @@
 session_start();
 include 'dbconnect.php';
 include 'admin_header.php';
+include 'report.php';
 ?>
 
     
-<div class="containor mt-4 ">
-    <?php
-    include 'message.php';
-    ?>
+<div class="containor mt-5 ">
+
+<?php include 'message.php';  ?>
     <div class="row">
         <div class="col-md-12">
             <div class="card">

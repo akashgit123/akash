@@ -12,13 +12,13 @@ if(isset($_POST['delete_post']))
     if($result)
     {
         $_SESSION['message'] = "Post Deleted Successfully";
-        header("Location:forum/partials/admin_curd/manage_post_reply/admin_post.php");
+        header("Location:/forum/partials/admin_curd/manage_post_reply/admin_post.php");
         exit(0);
     }
     else
     {
         $_SESSION['message'] = "Post Not Deleted";
-        header("Location:forum/partials/admin_curd/manage_post_reply/admin_post.php");
+        header("Location:/forum/partials/admin_curd/manage_post_reply/admin_post.php");
         exit(0);
     }
 }
@@ -35,13 +35,13 @@ if(isset($_POST['delete_comment']))
     if($result)
     {
         $_SESSION['message'] = "Comment Deleted Successfully";
-        header("Location:forum/partials/admin_curd/manage_post_reply/admin_post.php");
+        header("Location:/forum/partials/admin_curd/manage_post_reply/admin_post.php");
         exit(0);
     }
     else
     {
         $_SESSION['message'] = "Comment Not Deleted";
-        header("Location:forum/partials/admin_curd/manage_post_reply/admin_post.php");
+        header("Location:/forum/partials/admin_curd/manage_post_reply/admin_post.php");
         exit(0);
     }
 }
@@ -60,13 +60,13 @@ if(isset($_POST['verify_comment']))
     if($result)
     {
         $_SESSION['message'] = "Comment Verified Successfully";
-        header("Location:forum/partials/admin_curd/manage_post_reply/admin_post.php");
+        header("Location:/forum/partials/admin_curd/manage_post_reply/admin_post.php");
         exit(0);
     }
     else
     {
         $_SESSION['message'] = "Comment Not Verified";
-        header("Location:forum/partials/admin_curd/manage_post_reply/admin_post.php");
+        header("Location:/forum/partials/admin_curd/manage_post_reply/admin_post.php");
         exit(0);
     }
 }

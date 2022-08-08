@@ -1,6 +1,7 @@
-<!doctype html>
-<html lang="en">
+<?php 
+include '_dbconnect.php';
 
+?>
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -19,44 +20,50 @@
     <h1>
         <center>ITech Disc Forum</center>
     </h1>
-
-    <?php include '_dbconnect.php'; ?>
-    <?php include '_header.php'; ?>
-
+    <?php include '_header.php';  ?>
     
-
-    <h3 style="text-align: center;">Browse Categories</h3>
-    <!-- Fetch all the categories and use a loop to iterate through categories -->
-    <div class="class row">
+    <div class="conatinor my-3 mr-5">
+        <h2 style="text-align:center;">Latest Posts</h2>
         <?php
-        $sql = "select * from categories ";
+
+        $sql = "SELECT * from `threads` ORDER BY `time_stamp` DESC  LIMIT 10 ";
         $result = mysqli_query($con, $sql);
+        $no_result = true;
         while ($row = mysqli_fetch_assoc($result)) {
-            // echo $row['category_id'];
-            // echo $row['category_name'];
-            $cat = $row['category_name'];
-            $description = $row['category_description'];
-            $id = $row['category_id'];
-            // $img = $row['image'];
-            echo '
-            <div class="class row md4 mx-3 my-2">
-                <div class="card" style="width: 18rem;">
-                    <img class="card-img-top" src="https://source.unsplash.com/500x400/?computer,technology/' . $cat . '" alt="Wait Image is loading...">
-                    <div class="card-body">
-                        <h5 class="card-title">' . $cat . '</h5>
-                        <p class="card-text">' . substr($description, 0, 100) . '....</p>
-                        <a href="threadlist.php?catid=' . $id . '" class="btn btn-primary">Explore</a>
+            $no_result = false;
+            $thread_id = $row['thread_id'];
+            $thread_title = $row['thread_title'];
+            $thread_description = $row['thread_description'];
+            $post_time = $row['time_stamp'];
+            $thread_user_id = $row['thread_user_id'];
+
+            $sql2 = "SELECT `user_name` FROM `user` WHERE `user_id`='$thread_user_id'";
+            $result2 = mysqli_query($con, $sql2);
+            $row2 = mysqli_fetch_assoc($result2);
+            $user_name = $row2['user_name'];
+        ?>
+
+
+            <div class="row md-3">
+                <div class="media">
+                    <img class="mr-3" src="image\image_avatar.png" alt="There is some problem">
+                    <div class="media-body">
+                        <p class="font-weight-bold my-0"> <?= $user_name ?> at <?= $post_time ?></p>
+                        <h5 class="mt-0"><a class="text-dark" href="thread.php?thread_id= <?= $thread_id ?>"><?= $thread_title ?></a></h5>
+                        <?= $thread_description ?>
                     </div>
                 </div>
-            </div>';
+            </div>
+        <?php
         }
         ?>
+        <hr>
     </div>
-    <div class="class row md4"></div>
+
+
+
     <?php include '_footer.php'; ?>
-
-
-    <!-- Optional JavaScript -->
+<!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
     </script>
@@ -65,5 +72,3 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
     </script>
 </body>
-
-</html>

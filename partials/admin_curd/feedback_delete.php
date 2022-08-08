@@ -13,13 +13,13 @@ if(isset($_POST['delete_feedback']))
     if($result)
     {
         $_SESSION['message'] = "Feedback Deleted Successfully";
-        header("Location:admin_feedback.php");
+        header("Location:/forum/partials/admin_curd/admin_feedback.php");
         exit(0);
     }
     else
     {
         $_SESSION['message'] = "Feedback Not Deleted";
-        header("Location:admin_feedback.php");
+        header("Location:/forum/partials/admin_curd/admin_feedback.php");
         exit(0);
     }
 }

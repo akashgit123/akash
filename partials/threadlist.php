@@ -92,7 +92,11 @@
             </marquee>
             <p class="lead">
                 <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+                <br>
             </p>
+            <p style="text-align:right;">Total Number of Posts</p>
+
+            
         </div>
     </div>
 
@@ -138,7 +142,7 @@
 
             <?php
             $id = $_GET['catid'];
-            $sql = "select * from threads where thread_category_id= '$id'";
+            $sql = "SELECT * from threads where thread_category_id= '$id'  ORDER BY `time_stamp` DESC ";
             $result = mysqli_query($con, $sql);
             $no_result = true;
             while ($row = mysqli_fetch_assoc($result)) {
@@ -164,11 +168,12 @@
                 </div>
             </div>';
             }
-        // echo var_dump($no_result);
-        if ($no_result) {
-            echo "<b> Be the First Person to Start Discussion on topic of your Interest in this Category </b>";
-        }
-        ?>
+            // echo var_dump($no_result);
+            if ($no_result) {
+                echo "<b> Be the First Person to Start Discussion on topic of your Interest in this Category </b>";
+            }
+            ?>
+        </div>
 
 
 
@@ -183,7 +188,7 @@
 
 
 
-        <?php include '_footer.php'; ?>
+       
 
 
         <!-- Optional JavaScript -->
@@ -197,3 +202,4 @@
 </body>
 
 </html>
+<?php include '_footer.php'; ?>

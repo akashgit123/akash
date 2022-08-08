@@ -1,46 +1,34 @@
- <!-- Button trigger modal  -->
- <link rel="stylesheet" href="style.css">
+<?php
+session_start();
 
- <button type="button" class="btn btn-primary btn-success ml-1 bg-dark" data-toggle="modal" data-target="#loginModal">
-     Login
- </button>
+?>
 
-
- <!-- Modal -->
- <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginmodalLabel"
-     aria-hidden="true">
-     <div class="modal-dialog" role="document">
-         <div class="modal-content">
-             <div class="modal-header">
-                 <h5 class="modal-title" id="loginmodalLabel">Login to Our Website </h5>
-                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                     <span aria-hidden="true">&times;</span>
-                 </button>
-             </div> 
-             <div class="modal-body">
-                 <form action="/forum/partials/_handleLogin.php" method="POST">
-                     <div class="form-group">
-                         <label for="loginEmail">Username</label>
-                         <input type="text" class="form-control" id="loginUsername" name="loginUsername"
-                             aria-describedby="emailHelp" placeholder="Enter Username">
-                     </div>
-                     <br>
-                     <div class="form-group">
-                         <label for="loginPassword">Password </label>
-                         <input type="password" class="form-control" id="loginPassword" name="loginPassword"
-                             placeholder="Password">
-                     </div>
-                     <br>
-                     <button type="submit" class="btn btn-primary">Submit</button>
-                     <a href="forgot_password.php">Forgot Password?</a>
-
-
-                     <!-- <div class="modal-footer">
-                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                         <button type="button" class="btn btn-primary">Save changes</button>
-                     </div> -->
-                 </form>
-             </div>
-         </div>
-     </div>
- </div>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="user_signup.css" />
+    <title>Form Input Wave</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Login In</h1>
+      <?php include 'message.php';  ?>
+      <form action="/forum/partials/_handleLogin.php" method="POST">
+        <div class="form-control">
+          <input type="text" id="" name="loginUsername" required />
+          <label>Your Username</label>
+        </div>
+        <div class="form-control">
+          <input type="password" id="" name="loginPassword" required />
+          <label>Your Password</label>
+        </div>
+        <button class="btn">Submit</button>
+        <br> <br>
+        <a href="/forum/partials/forgot.php" style="color: black;">Forgot Password?</a>
+      </form>
+    </div>
+    <script src="user_signup.js"></script>
+  </body>
+</html>

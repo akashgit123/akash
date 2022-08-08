@@ -25,19 +25,18 @@
     <?php include '_dbconnect.php'; ?>
     <?php include '_header.php'; ?>
     <?php
-    $id = $_GET['thread_id'];
-    $sql = "select * from threads where thread_id= '$id'";
+    $id = $_GET['comment_id'];
+    $sql = "select * from comments where comment_id= '$id'";
     $result = mysqli_query($con, $sql);
     $no_result = true;
     while ($row = mysqli_fetch_assoc($result)) {
         $no_result = false;
-        $id = $row['thread_id'];
-        $title = $row['thread_title'];
-        $description = $row['thread_description'];
-        $thread_user_id = $row['thread_user_id'];
-        $time =$row['time_stamp'];
+        $id = $row['comment_id'];
+        $comment_content = $row['comment_content'];
+        $user_id = $row['comment_by'];
+        $time =$row['comment_time'];
 
-        $sql2 = "SELECT `user_name` FROM `user` WHERE `user_id`=$thread_user_id";
+        $sql2 = "SELECT `user_name` FROM `user` WHERE `user_id`=$user_id";
         $result2 = mysqli_query($con,$sql2);
         $row2 = mysqli_fetch_assoc($result2);
         $posted_by = $row2['user_name'];
@@ -51,15 +50,15 @@
     // echo $method;
     if ($method == 'POST') {
         // Inserting the comments into the Comments DataBase 
-        $comment_description = $_POST['comment'];
-        $comment_description = str_replace("<","&lt;",$comment_description);
-        $comment_description = str_replace(">","&gt;",$comment_description);
+        $sub_comment = $_POST['sub_comment'];
+        $sub_comment = str_replace("<","&lt;",$sub_comment);
+        $sub_comment = str_replace(">","&gt;",$sub_comment);
 
         $verify=" ";
 
 
         $user_id = $_POST['user_id'];
-        $sql = "INSERT INTO `comments` (`comment_content`, `thread_id`, `comment_time`, `comment_by`,`verify`) VALUES ('$comment_description', '$id', current_timestamp(), '$user_id','$verify')";
+        $sql = "INSERT INTO `sub_comment` (`sub_comment_content`, `comment_id`,`sub_comment_by`, `sub_comment_time`, `verify`) VALUES ('$sub_comment', '$id', '$user_id', current_timestamp(),'$verify')";
         $result = mysqli_query($con, $sql);
         $show_alert = true;
     }
@@ -79,9 +78,8 @@
     <div class="containor">
         <div class="jumbotron">
             <h1 class="display-10">
-                <?php echo $title ?>
+                <?php echo $comment_content ?>
             </h1>
-            <p class="lead"> <?php echo $description ?></p>
             <hr class="my-4">
             <p>Important Notice... <br>
                 <marquee behavior="" direction="left"><b>Rules:</b>
@@ -112,7 +110,7 @@
         <form action=" '.$_SERVER["REQUEST_URI"].' " method="POST">
             <div class="form-floating">
                 <label for="floatingTextarea">Please Post your Reply or Comment Here</label>
-                <textarea class="form-control" placeholder="Write Explanation here" id="comment" name="comment" rows="3"></textarea>
+                <textarea class="form-control" placeholder="Write Explanation here" id="comment" name="sub_comment" rows="3"></textarea>
                 <input type="hidden" name="user_id" value=" '.$_SESSION["user_id"].' ">
 
             </div><br>
@@ -133,25 +131,25 @@
 
     <!-- Fetching the Comments from the DB -->
     <div class="container mb-5">
-        <h1 class="py-2" style="text-align:left;">Replies / Comments</h1>
+        <h1 class="py-2" style="text-align:left;">Comments</h1>
         
        
         
         <?php
         
-        $id = $_GET['thread_id'];
-        $sql = "SELECT * from comments where thread_id= '$id' ORDER BY `comment_time` DESC";
+        $id = $_GET['comment_id'];
+        $sql = "SELECT * from sub_comment  where comment_id= '$id' ORDER BY `sub_comment_time` DESC";
         $result = mysqli_query($con, $sql);
         $no_result = true;
         while ($row = mysqli_fetch_assoc($result)) {
             $no_result = false;
-            $comment_id = $row['comment_id'];
-            $content = $row['comment_content'];
-            $comment_time = $row['comment_time'];
-            $comment_user_id= $row['comment_by'];
+            $sub_comment_id = $row['sub_comment_id'];
+            $sub_comment_content = $row['sub_comment_content'];
+            $sub_comment_time = $row['sub_comment_time'];
+            $sub_comment_by= $row['sub_comment_by'];
             $verify = $row['verify'];
 
-            $sql2 = "SELECT `user_name` FROM `user` WHERE `user_id`=$comment_user_id";
+            $sql2 = "SELECT `user_name` FROM `user` WHERE `user_id`=$sub_comment_by";
             $result2 = mysqli_query($con,$sql2);
             $row2 = mysqli_fetch_assoc($result2);
             $user_name = $row2['user_name'];
@@ -162,8 +160,8 @@
             <img class="mr-3" src="image\image_avatar.png" width="70px;" alt="There is some problem">
             <div class="media-body">
             <p class= "font-weight-bold my-0">Replied By: '.$user_name .'  </p>
-            <a style="color:black;" href="sub_comment.php?comment_id=' . $comment_id . '">
-                ' . $content . '</a> <br> '.$comment_time.'
+            <a style="color:black;" href="sub_comment.php">
+                ' . $sub_comment_content . '</a> <br> '.$sub_comment_time.'
             </div><b style="color:red";> '.$verify.'</b>
         </div>';
         }

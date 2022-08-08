@@ -12,19 +12,16 @@ echo '
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <a class="nav-link" href="index.php">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="/forum/partials/index.php">Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="about.php">About</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="admin_curd/admin_login.php">Official Login</a>
+                <a class="nav-link" href="/forum/partials/about.html">About</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="feedback">FeedBack</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="contact.php">Contact</a>
+                <a class="nav-link" href="/forum/partials/latest_posts.php">Latest Posts</a>
             </li>
         </ul>
 
@@ -41,9 +38,11 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
             <form class="form-inline my-2 my-lg-0" method="get" action="search.php">
                 <input class="form-control mr-sm-2" type="search" name="search" placeholder="Search" aria-label="Search">
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button> 
+                <a href="/forum/partials/_loginmodal.php" class="btn btn-success ml-2 bg-dark" >Login</a >
+                <a href="/forum/partials/_signupmodal.php" class="btn btn-success ml-2 bg-dark" >Signup</a >
             </form>';
-  include "_loginmodal.php";
-  include "_signupmodal.php";
+//   include "_loginmodal.php";
+  
 }
 
 // <!-- <button class="btn btn-success ml-2 bg-dark" data-toggle="modal"  data-target="#loginModal" >Login</button > -->
