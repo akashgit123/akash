@@ -133,10 +133,7 @@
     <div class="container mb-5">
         <h1 class="py-2" style="text-align:left;">Comments</h1>
         
-       
-        
         <?php
-        
         $id = $_GET['comment_id'];
         $sql = "SELECT * from sub_comment  where comment_id= '$id' ORDER BY `sub_comment_time` DESC";
         $result = mysqli_query($con, $sql);
