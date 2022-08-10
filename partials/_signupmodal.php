@@ -9,7 +9,7 @@
   <body>
     <div class="container">
       <h1>SignUp</h1>
-      <?php include 'message.php' ;?>
+      <?php include 'message.php'; ?>
       <form action="/forum/partials/_handleSignup.php" method="POST">
         <div class="form-control">
           <input type="text" id="" name="signupUsername" required />

@@ -40,18 +40,14 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button> 
                 <a href="/forum/partials/_loginmodal.php" class="btn btn-success ml-2 bg-dark" >Login</a >
                 <a href="/forum/partials/_signupmodal.php" class="btn btn-success ml-2 bg-dark" >Signup</a >
-            </form>';
-//   include "_loginmodal.php";
-  
+            </form>';  
 }
 
-// <!-- <button class="btn btn-success ml-2 bg-dark" data-toggle="modal"  data-target="#loginModal" >Login</button > -->
-// <!-- <button class="btn btn-success mx-2 bg-dark"data-toggle="modal" data-target="#signupModal">Signup</button> -->
-echo '</div>
-      
+echo '</div>  
     </div>
 </nav>';
 ?>
+
 
 
 <?php

@@ -94,7 +94,7 @@
                 <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
                 <br>
             </p>
-            <p style="text-align:right;">Total Number of Posts</p>
+            <!-- <p style="text-align:right;">Total Number of Posts</p> -->
 
             
         </div>

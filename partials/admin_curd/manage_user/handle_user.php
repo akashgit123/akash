@@ -5,7 +5,7 @@ include 'dbconnect.php';
 // Delete User
 if(isset($_POST['delete_user']))
 {
-    $user_id =  mysqli_real_escape_string($con,$_POST['user_id']);
+    $user_id =  mysqli_real_escape_string($con,$_POST['delete_user']);
 
     $sql = "DELETE FROM `user` WHERE `user_id` ='$user_id'";
     $result = mysqli_query($con,$sql);

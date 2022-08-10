@@ -5,7 +5,7 @@ include 'dbconnect.php';
 // Delete Admin
 if(isset($_POST['delete_admin']))
 {
-    $admin_id =  mysqli_real_escape_string($con,$_POST['admin_id']);
+    $admin_id =  mysqli_real_escape_string($con,$_POST['delete_admin']);
 
     $sql = "DELETE FROM `admin` WHERE `admin_id` ='$admin_id'";
     $result = mysqli_query($con,$sql);
@@ -79,14 +79,14 @@ if(isset($_POST['save_admin']))
              $result = mysqli_query($con,$sql);
              if($result)
              {
-                $_SESSION['message'] = "Category Not Updated";
-                header("Location:add_admin.php");
+                $_SESSION['message'] = "Admin Added";
+                header("Location:/forum/partials/admin_curd/admin_index.php");
                 exit(0);
              }
              else
              {
-                $_SESSION['message'] = "Category Not Added";
-                header("Location:add_admin.php");
+                $_SESSION['message'] = "Admin Not Added";
+                header("Location:/forum/partials/admin_curd/add_admin.php");
                 exit(0);
              }
          }

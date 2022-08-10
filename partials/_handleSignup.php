@@ -10,15 +10,14 @@ if($_SERVER['REQUEST_METHOD']== "POST")
     $cpassword = $_POST['signupcPassword'];
 
     // Check whether the user exists in the DB or Not
-    $exist_sql = "select * from user where `user_name`='$username'";
+    $exist_sql = "SELECT * from user where `user_name`='$username'";
     $result = mysqli_query($con,$exist_sql);
     $num_rows = mysqli_num_rows($result);
     if($num_rows)
     {
         session_start();
-        $_SESSION['message'] = "Username Already Exists";
+        $_SESSION['message'] = "Username Already Exists...Try for New one";
         header("Location:/forum/partials/_signupmodal.php");
-
     }
     else
     {
@@ -35,8 +34,12 @@ if($_SERVER['REQUEST_METHOD']== "POST")
                 exit();
             }
         }
-        $_SESSION['message'] = "Passwords Do Not Match";
-        header("Location:/forum/partials/_signupmodal.php");
+        else
+        {
+            $_SESSION['message'] = "Passwords Do Not Match";
+            header("Location:/forum/partials/_signupmodal.php");
+        }
+        
     }
 }
 ?>

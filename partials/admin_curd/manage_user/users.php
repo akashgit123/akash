@@ -10,6 +10,7 @@ include 'admin_header.php';
     // include 'message.php';
     ?>
     <div class="row">
+        <?php include 'message.php';  ?>
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
@@ -46,8 +47,8 @@ include 'admin_header.php';
 
                                         <div class="row mx-2">
                                             <td>                                                
-                                                <form action="handle_user.php" method="POST" class="d-inline">
-                                                    <button type="submit" name="delete_user" value="<?= $user['user_id'];?>" class="btn btn-danger btn-sm">Delete</button>
+                                                <form action="/forum/partials/admin_curd/manage_user/handle_user.php" method="POST" class="d-inline">
+                                                    <button type="submit" name="delete_user" value="<?= $user['user_id']; ?>" class="btn btn-danger btn-sm">Delete</button>
                                                 </form>
                                             </td>
                                         </div>

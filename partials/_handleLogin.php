@@ -24,7 +24,7 @@ if($_SERVER['REQUEST_METHOD']=='POST')
         }
         else
         {
-            $_SESSION['message']="Incorrect Password";
+            $_SESSION['message']="Incorrect Password ";
             header("location:/forum/partials/_loginmodal.php");
         }
        
@@ -37,7 +37,7 @@ if($_SERVER['REQUEST_METHOD']=='POST')
         if($num_row2==1)
         {
             $row2=mysqli_fetch_assoc($result2);
-            if($password==$row['password'])
+            if($password==$row2['admin_password'])
             {
                 header("location:/forum/partials/admin_curd/admin_index.php");
             }

@@ -44,7 +44,7 @@ include '_dbconnect.php';
         ?>
 
 
-            <div class="row md-3">
+            <div class="row  mr-15 ml-15">
                 <div class="media">
                     <img class="mr-3" src="image\image_avatar.png" alt="There is some problem">
                     <div class="media-body">

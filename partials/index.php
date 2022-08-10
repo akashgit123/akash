@@ -27,7 +27,7 @@
 
     <h3 style="text-align: center;">Browse Categories</h3>
     <!-- Fetch all the categories and use a loop to iterate through categories -->
-    <div class="class row">
+    <div class="class row mr-0 ml-0 ">
         <?php
         $sql = "select * from categories ";
         $result = mysqli_query($con, $sql);
