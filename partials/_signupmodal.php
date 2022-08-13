@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -9,7 +12,7 @@
   <body>
     <div class="container">
       <h1>SignUp</h1>
-      <?php include 'message.php'; ?>
+      <?php include '_message.php';  ?>
       <form action="/forum/partials/_handleSignup.php" method="POST">
         <div class="form-control">
           <input type="text" id="" name="signupUsername" required />
@@ -29,6 +32,9 @@
         </div>
         <button class="btn">Submit</button>
       </form>
+      <p>Already have an account ? <a style="color:black;" href="/forum/partials/_loginmodal.php">Login</a></p>
+      <br>
+      <p style="text-align:right;"><a href="/forum/partials/index.php"><b>Exit</b></a></p>
     </div>
     <script src="user_signup.js"></script>
   </body>

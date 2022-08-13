@@ -24,6 +24,7 @@ include '_dbconnect.php';
     
     <div class="conatinor my-3 mr-5">
         <h2 style="text-align:center;">Latest Posts</h2>
+        <p style="color:black; text-align:right; font-size:25px;"><a href="/forum/partials/index.php"><b>Exit</b></a></p>
         <?php
 
         $sql = "SELECT * from `threads` ORDER BY `time_stamp` DESC  LIMIT 10 ";
@@ -57,7 +58,6 @@ include '_dbconnect.php';
         <?php
         }
         ?>
-        <hr>
     </div>
 
 

@@ -44,10 +44,10 @@ include 'admin_header.php';
 
                                         <div class="row mx-2">
                                             <td>
-                                                <a href="edit_category.php?id=<?= $category['category_id']; ?>" class="btn btn-success btn-sm mx-1 my-1">Edit</a>
+                                                <a href="/forum/partials/admin_curd/manage_category/edit_category.php?id=<?= $category['category_id']; ?>" class="btn btn-success btn-sm my-1" style="width: 5rem; margin-left: 0rem">Edit</a>
                                                 
-                                                <form action="handle_category.php" method="POST" class="d-inline">
-                                                    <button type="submit" name="delete_category" value="<?= $category['category_id']; ?>" class="btn btn-danger btn-sm">Delete</button>
+                                                <form action="/forum/partials/admin_curd/manage_category/handle_category.php" method="POST" class="d-inline">
+                                                    <button type="submit" name="delete_category" value="<?= $category['category_id']; ?>" class="btn btn-danger btn-sm " style="width: 5rem;  margin-left: 0rem">Delete</button>
                                                 </form>
                                             </td>
                                         </div>

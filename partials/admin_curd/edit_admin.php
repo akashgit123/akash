@@ -4,7 +4,7 @@ include 'dbconnect.php';
 include 'admin_header.php';
 ?>
 
-    <h1>Category Update</h1>
+    <h1></h1>
     <div class="containor mt-5">
 
         <?php include 'message.php'; ?>
@@ -13,7 +13,7 @@ include 'admin_header.php';
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <h4>Update
+                        <h4> Admin Update
                             <a href="admin_index.php" class="btn btn-success float-end">BACK</a>
                         </h4>
                     </div>

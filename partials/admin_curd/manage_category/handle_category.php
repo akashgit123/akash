@@ -13,13 +13,13 @@ if(isset($_POST['delete_category']))
     if($result)
     {
         $_SESSION['message'] = "Category Deleted Successfully";
-        header("Location:/forum/partials/admin_curd/admin_category.php");
+        header("Location:/forum/partials/admin_curd/manage_category/admin_category.php");
         exit(0);
     }
     else
     {
         $_SESSION['message'] = "Category Not Deleted";
-        header("Location:/forum/partials/admin_curd/admin_category.php");
+        header("Location:/forum/partials/admin_curd/manage_category/admin_category.php");
         exit(0);
     }
 }
@@ -38,13 +38,13 @@ if(isset($_POST['update_category']))
     if($result)
     {
         $_SESSION['message'] = "Category Updated Successfully";
-        header("Location:/forum/partials/admin_curd/admin_category.php");
+        header("Location:/forum/partials/admin_curd/manage_category/admin_category.php");
         exit(0);
     }
     else
     {
         $_SESSION['message'] = "Category Not Added";
-        header("Location:/forum/partials/admin_curd/admin_category.php");
+        header("Location:/forum/partials/admin_curd/manage_category/admin_category.php");
         exit(0);
     }
 }
@@ -61,13 +61,13 @@ if(isset($_POST['save_category']))
     if($result)
     {
         $_SESSION['message'] = "Category Not Added";
-        header("Location:add_category.php");
+        header("Location:/forum/partials/admin_curd/manage_category/add_category.php");
         exit(0);
     }
     else
     {
         $_SESSION['message'] = "Category Not Added";
-        header("Location:add_category.php");
+        header("Location:/forum/partials/admin_curd/manage_category/add_category.php");
         exit(0);
     }
 }

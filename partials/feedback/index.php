@@ -47,9 +47,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/-->
 			<input type="text" placeholder="Your Number (optional)" name="num"  /><br>
 			<center><input type="submit" value="submit Feedback" class="agileinfo" /></center>
 	  </form>
+	  <p style="text-align:right;"><a style="color: white;" href="/forum/partials/index.php"><b>Exit</b></a></p>
 	</div>
 	<div class="agileits_copyright text-center">
-			<p>© 2021 </p>
+			<p> </p>
 	</div>
 </body>
 </html>
