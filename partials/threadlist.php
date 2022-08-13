@@ -91,7 +91,7 @@
             </p>
             </marquee>
             <p class="lead">
-                <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+                <a class="btn btn-primary btn-lg" href="/forum/partials/index.php" role="button">Back</a>
                 <br>
             </p>
             <!-- <p style="text-align:right;">Total Number of Posts</p> -->
