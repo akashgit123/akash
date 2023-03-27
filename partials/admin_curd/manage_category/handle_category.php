@@ -43,7 +43,7 @@ if(isset($_POST['update_category']))
     }
     else
     {
-        $_SESSION['message'] = "Category Not Added";
+        $_SESSION['message'] = "Category Not Updateed";
         header("Location:/forum/partials/admin_curd/manage_category/admin_category.php");
         exit(0);
     }
@@ -60,14 +60,14 @@ if(isset($_POST['save_category']))
     $result = mysqli_query($con,$sql);
     if($result)
     {
-        $_SESSION['message'] = "Category Not Added";
-        header("Location:/forum/partials/admin_curd/manage_category/add_category.php");
+        $_SESSION['message'] = "Category Added";
+        header("Location:/forum/partials/admin_curd/manage_category/admin_category.php");
         exit(0);
     }
     else
     {
         $_SESSION['message'] = "Category Not Added";
-        header("Location:/forum/partials/admin_curd/manage_category/add_category.php");
+        header("Location:/forum/partials/admin_curd/manage_category/admin_category.php");
         exit(0);
     }
 }

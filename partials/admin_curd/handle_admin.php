@@ -74,21 +74,21 @@ if(isset($_POST['save_admin']))
      {
          if($password==$cpassword)
          {
-            //  $hash = password_hash($password,PASSWORD_DEFAULT);
-             $sql = "INSERT INTO `admin` (`admin_name`, `admin_user_name`,`admin_password`,`admin_email`, `creation_time`) VALUES ('$name', '$username','$password','$email', current_timestamp())";
-             $result = mysqli_query($con,$sql);
-             if($result)
-             {
-                $_SESSION['message'] = "Admin Added";
-                header("Location:/forum/partials/admin_curd/admin_index.php");
-                exit(0);
-             }
-             else
-             {
-                $_SESSION['message'] = "Admin Not Added";
-                header("Location:/forum/partials/admin_curd/add_admin.php");
-                exit(0);
-             }
+            $hash = password_hash($password,PASSWORD_DEFAULT);
+            $sql = "INSERT INTO `admin` (`admin_name`, `admin_user_name`,`admin_password`,`admin_email`, `creation_time`) VALUES ('$name', '$username','$hash','$email', current_timestamp())";
+            $result = mysqli_query($con,$sql);
+            if($result)
+            {
+            $_SESSION['message'] = "Admin Added";
+            header("Location:/forum/partials/admin_curd/admin_index.php");
+            exit(0);
+            }
+            else
+            {
+            $_SESSION['message'] = "Admin Not Added";
+            header("Location:/forum/partials/admin_curd/add_admin.php");
+            exit(0);
+            }
          }
     }
 

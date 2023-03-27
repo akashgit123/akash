@@ -24,7 +24,7 @@ include 'admin_header.php';
                                 <th>SL No</th>
                                 <th>Name</th>
                                 <th>Email</th>
-                                <th>Phone</th>
+                                <!-- <th>Phone</th> -->
                                 <th>Feedback</th>
                                 <th>Suggestions</th>
                                 <th>Date</th>
@@ -42,7 +42,6 @@ include 'admin_header.php';
                                             <td> <?= $feedback['id']; ?></td>
                                             <td> <?= $feedback['name']; ?></td>
                                             <td> <?= $feedback['email']; ?></td>
-                                            <td> <?= $feedback['phone']; ?></td>
                                             <td> <?= $feedback['feedback']; ?></td>
                                             <td> <?= $feedback['suggestions']; ?></td>
                                             <td> <?= $feedback['feedback_date']; ?></td>

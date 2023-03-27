@@ -39,12 +39,14 @@
     if ($method == 'POST') {
         // Inserting the Posts into the DataBase 
         $th_title = $_POST['thread_title'];
-        $th_title = str_replace("<","&lt;", $th_title);
-        $th_title = str_replace(">","&gt;", $th_title);
+        // $th_title = str_replace("<","&lt;", $th_title);
+        // $th_title = str_replace(">","&gt;", $th_title);
+        $th_title= nl2br(htmlentities($th_title,ENT_QUOTES,'UTF-8'));
 
         $th_description = $_POST['thread_description'];
-        $th_description = str_replace("<","&lt;",$th_description);
-        $th_description = str_replace(">","&gt;",$th_description);
+        // $th_description = str_replace("<","&lt;",$th_description);
+        // $th_description = str_replace(">","&gt;",$th_description);
+        $th_description=nl2br(htmlentities($th_description,ENT_QUOTES,'UTF-8'));
 
         $user_id = $_POST['user_id'];
         $sql = "INSERT INTO `threads` (`thread_title`, `thread_description`, `thread_category_id`, `thread_user_id`, `time_stamp`) VALUES ('$th_title', '$th_description', '$id', '$user_id', current_timestamp())";
@@ -93,10 +95,9 @@
             <p class="lead">
                 <a class="btn btn-primary btn-lg" href="/forum/partials/index.php" role="button">Back</a>
                 <br>
+                <b> Please Post the content related to <?php echo $category_name; ?></b>
             </p>
-            <!-- <p style="text-align:right;">Total Number of Posts</p> -->
-
-            
+            <!-- <p style="text-align:right;">Total Number of Posts</p> -->   
         </div>
     </div>
 
@@ -109,7 +110,7 @@
         <form action=" '. $_SERVER["REQUEST_URI"].'" method="POST">
     <div class="mb-3">
         <label for="exampleInputEmail1" class="form-label">Post Title</label>
-        <input type="" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" id="thread_title"
+        <input required type="" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" id="thread_title"
             name="thread_title">
         <div id="emailHelp" class="form-text">Try to keep your Title as short as possible.</div>
     </div>

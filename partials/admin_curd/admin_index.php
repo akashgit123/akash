@@ -25,7 +25,6 @@ include 'report.php';
                             <th>Sl No</th>
                             <th> Name</th>
                             <th>Username</th>
-                            <th>Password</th>
                             <th>E-mail</th>
                             <th>Creation Time</th>
                             <th>Operations</th>
@@ -43,7 +42,6 @@ include 'report.php';
                                         <td> <?= $admin['admin_id']; ?></td>
                                         <td> <?= $admin['admin_name']; ?></td>
                                         <td> <?= $admin['admin_user_name']; ?></td>
-                                        <td> <?= $admin['admin_password']; ?></td>
                                         <td> <?= $admin['admin_email']; ?></td>
                                         <td> <?= $admin['creation_time']; ?></td>
 

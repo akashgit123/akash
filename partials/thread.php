@@ -52,8 +52,11 @@
     if ($method == 'POST') {
         // Inserting the comments into the Comments DataBase 
         $comment_description = $_POST['comment'];
-        $comment_description = str_replace("<","&lt;",$comment_description);
-        $comment_description = str_replace(">","&gt;",$comment_description);
+
+        // $comment_description = str_replace("<","&lt;",$comment_description);
+        // $comment_description = str_replace(">","&gt;",$comment_description);
+
+        $comment_description = nl2br(htmlentities($comment_description,ENT_QUOTES,'UTF-8'));
 
         $verify=" ";
 
@@ -112,7 +115,7 @@
         <form action=" '.$_SERVER["REQUEST_URI"].' " method="POST">
             <div class="form-floating">
                 <label for="floatingTextarea">Please Post your Reply or Comment Here</label>
-                <textarea class="form-control" placeholder="Write Explanation here" id="comment" name="comment" rows="3"></textarea>
+                <textarea required class="form-control" placeholder="Write Explanation here" id="comment" name="comment" rows="3"></textarea>
                 <input type="hidden" name="user_id" value=" '.$_SESSION["user_id"].' ">
 
             </div><br>

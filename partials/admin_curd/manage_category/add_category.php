@@ -26,7 +26,7 @@ session_start();
                 <div class="card">
                     <div class="card-header">
                         <h4>Add Category
-                            <a href="admin_index.php" class="btn btn-success float-end">BACK</a>
+                            <a href="/forum/partials/admin_curd/manage_category/admin_category.php" class="btn btn-success float-end">BACK</a>
                         </h4>
                     </div>
                     <div class="card-body">

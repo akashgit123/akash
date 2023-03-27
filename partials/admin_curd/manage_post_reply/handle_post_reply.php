@@ -1,4 +1,5 @@
 <?php
+session_start();
 include 'dbconnect.php';
 // Delete Post
 if(isset($_POST['delete_post']))
@@ -28,6 +29,7 @@ if(isset($_POST['delete_post']))
 if(isset($_POST['delete_comment']))
 {
     $comment_id=mysqli_real_escape_string($con,$_POST['delete_comment']);
+    $thread_id=$_SESSION['thread_id'];
 
     $sql = "DELETE FROM `comments` WHERE `comment_id` ='$comment_id'";
     $result = mysqli_query($con,$sql);
@@ -35,7 +37,7 @@ if(isset($_POST['delete_comment']))
     if($result)
     {
         $_SESSION['message'] = "Comment Deleted Successfully";
-        header("Location:/forum/partials/admin_curd/manage_post_reply/admin_post.php");
+        header("Location:/forum/partials/admin_curd/manage_post_reply/admin_comments.php?thread_id=$thread_id");
         exit(0);
     }
     else

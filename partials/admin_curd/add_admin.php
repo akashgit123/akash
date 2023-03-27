@@ -16,7 +16,7 @@ session_start();
 </head>
 
 <body>
-    <h1>Category List</h1>
+    
     <div class="containor mt-5">
 
 <?php include 'message.php'; ?>

@@ -9,6 +9,7 @@ session_start();
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="user_signup.css" />
+    <link rel="stylesheet" href="strong_password.css" />
     <title>Form Input Wave</title>
   </head>
   <body>
@@ -20,10 +21,20 @@ session_start();
           <input type="text" id="" name="loginUsername" required />
           <label>Your Username</label>
         </div>
-        <div class="form-control">
+        <div class="input-container">
+        <div class="input-group">
+          <input type="password" name="loginPassword" placeholder="Enter your password"  required />
+          <span class="toggle">☠️</span>
+          <!-- <span class="toggle">🙈</span> -->
+          <span class="ripple"></span>
+        </div>
+        
+      </div>
+      <script src="./strong_password.js"></script>
+        <!-- <div class="form-control">
           <input type="password" id="" name="loginPassword" required />
           <label>Your Password</label>
-        </div>
+        </div> -->
         <button class="btn">Submit</button>
         <br> <br>
         <a href="/forum/partials/forgot.php" style="color: black;">Forgot Password?</a>

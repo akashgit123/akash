@@ -4,6 +4,7 @@ include 'dbconnect.php';
 include 'admin_header.php';
 ?>
 
+
 <div class="containor mt-4 ">
         <?php
         include 'message.php';
@@ -48,10 +49,12 @@ include 'admin_header.php';
 
                                             <div class="row mx-2">
                                                 <td>
-                                                    <a href="verify_comments.php?id=<?= $comment['comment_id']; ?>" class="btn btn-success btn-sm mx-1 my-1">Verify</a>
+                                                    <a href="verify_comments.php?id=<?= $comment['comment_id']; ?>" class="btn btn-success btn-sm mx-1 my-1"style="width: 5rem; margin-left: 0rem">Verify</a>
                                                     
                                                     <form action="handle_post_reply.php" method="POST" class="d-inline">
-                                                        <button type="submit" name="delete_comment" value="<?= $comment['comment_id']; ?>" class="btn btn-danger btn-sm">Delete</button>
+                                                        <button type="submit" name="delete_comment" value="<?= $comment['comment_id']; ?>" class="btn btn-danger btn-sm"style="width: 5rem; margin-left: 0rem">Delete</button>
+                                                        <?php
+                                                            $_SESSION['thread_id']=$thread_id;                                                        ?>
                                                     </form>
                                                 </td>
                                             </div>

@@ -30,7 +30,7 @@
             Dropdown
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="/forum/partials/admin_curd/admin_category.php">Manage Category</a></li>
+            <li><a class="dropdown-item" href="\forum\partials\admin_curd\manage_category\admin_category.php">Manage Category</a></li>
             <li><a class="dropdown-item" href="/forum/partials/admin_curd/manage_post_reply/admin_post.php">Manage Posts & Replies</a></li>
             <li><a class="dropdown-item" href="/forum/partials/admin_curd/admin_feedback.php">Feedback</a></li>
             <li><a class="dropdown-item" href="/forum/partials/admin_curd/manage_user/users.php">User</a></li>
@@ -41,7 +41,7 @@
       <form class="d-flex">
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
         <button class="btn btn-outline-success mx-1" type="submit">Search</button>
-        <button class="btn btn-outline-success" type="submit">Logout</button>
+        <a href="admin_logout.php" class="btn btn-outline-success" type="submit">Logout </a>
       </form>
     </div>
   </div>

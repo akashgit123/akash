@@ -42,9 +42,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/-->
 			 </ul>	  
 			<h2>If you have specific feedback, please write to us...</h2>
 			<textarea placeholder="Additional comments" class="w3l_summary" name="comments" required=""></textarea>
-			<input type="text" placeholder="Your Name (optional)" name="name"  />
-			<input type="email" placeholder="Your Email (optional)" name="email"/>
-			<input type="text" placeholder="Your Number (optional)" name="num"  /><br>
+			<input required type="text" placeholder="Your Name" name="name"  />
+			<input required type="email" placeholder="Your Email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" title="Please enter correct email address"/>
+			<!-- <input type="text" placeholder="Your Number (optional)" name="num"  /><br> -->
 			<center><input type="submit" value="submit Feedback" class="agileinfo" /></center>
 	  </form>
 	  <p style="text-align:right;"><a style="color: white;" href="/forum/partials/index.php"><b>Exit</b></a></p>
